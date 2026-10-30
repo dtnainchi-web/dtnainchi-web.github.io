@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Case 1 Cast Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800&family=Amiri:wght@700&display=swap">
+<style>
+:root{--ink:#f6efe2;--gold:#e9b96a;--gold2:#ffd98f;--panel:rgba(14,18,28,.84);--line:rgba(233,185,106,.45)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#06080d;color:var(--ink);font-family:"Cairo",system-ui,sans-serif;overflow:hidden}
+.wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;height:100%;max-height:100dvh;aspect-ratio:9/16;max-width:100vw;overflow:hidden;background:#000}
+.bg{position:absolute;inset:-2%;background:url("https://d8j0ntlcm91z4.cloudfront.net/user_3JpJkywIRlAJNQVZ9HPVpTDZYWi/hf_20261030_204608_285a2014-18ed-4af2-b23b-32b7658bb3e3.png") center/cover;filter:blur(2px) brightness(.8);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.05) translateX(-1%)}}
+.char{position:absolute;left:50%;bottom:0;width:100%;aspect-ratio:1360/2048;transform:translateX(-50%) translateY(6%);opacity:0;transition:opacity .45s,transform .55s cubic-bezier(.2,1,.3,1)}
+.char.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.char .body{position:absolute;inset:0;transform-origin:50% 100%;animation:breathe 4.8s ease-in-out infinite}
+@keyframes breathe{50%{transform:scaleY(1.008) translateY(-0.3%)}}
+.layer{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat}
+.mouth,.eyes{opacity:0}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 25%,transparent 55%,rgba(5,7,12,.92) 100%);pointer-events:none}
+.box{position:absolute;left:4%;right:4%;bottom:3.5%;padding:18px 18px 18px;border-radius:18px;background:var(--panel);border:1.5px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 18px 40px rgba(0,0,0,.55);transform:translateY(140%);transition:transform .55s cubic-bezier(.2,1.1,.3,1)}
+.box.show{transform:none}
+.name{position:absolute;top:-17px;right:18px;padding:3px 14px;border-radius:10px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1408;font-weight:800;font-size:15px;box-shadow:0 6px 16px rgba(0,0,0,.4)}
+.role{font-size:12px;opacity:.7;margin-bottom:4px}
+.text{font-size:clamp(17px,4.6vw,21px);line-height:1.75;font-weight:700;min-height:3.5em}
+.text .c{opacity:0;transition:opacity .12s}.text .c.on{opacity:1}
+.hint{position:absolute;left:16px;bottom:10px;font-size:12px;color:var(--gold2);opacity:0}
+.done .hint{opacity:.9;animation:bob 1s ease-in-out infinite}
+@keyframes bob{50%{translate:0 3px}}
+.start{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:radial-gradient(60% 50% at 50% 50%,rgba(0,0,0,.35),rgba(0,0,0,.8));cursor:pointer;z-index:5;text-align:center;padding:16px}
+.start h1{font-family:"Amiri",serif;font-size:clamp(30px,8vw,44px);color:var(--gold2)}
+.start h2{font-size:16px;font-weight:700;opacity:.9}
+.start p{opacity:.8;font-size:14px}
+.play{width:78px;height:78px;border-radius:50%;background:linear-gradient(180deg,var(--gold2),var(--gold));display:grid;place-items:center;box-shadow:0 0 0 8px rgba(233,185,106,.18),0 14px 30px rgba(0,0,0,.5)}
+.play::after{content:"";border-left:24px solid #1b1408;border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
+.tag{position:absolute;top:14px;right:14px;z-index:4;padding:6px 12px;border-radius:999px;background:rgba(10,12,18,.55);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--gold2)}
+.dots{position:absolute;top:18px;left:14px;z-index:4;display:flex;gap:6px}
+.dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}.dots i.on{background:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="stage" id="stage">
+  <div class="bg"></div>
+  <div id="cast"></div>
+  <div class="shade"></div>
+  <div class="tag">القضية 1 · اللؤلؤة المفقودة</div>
+  <div class="dots" id="dots"></div>
+  <div class="box" id="box"><div class="name" id="name"></div><div class="role" id="role"></div><div class="text" id="text"></div><div class="hint">اضغط للمتابعة ◂</div></div>
+  <div class="start" id="start"><h1>قضية بالحروف</h1><h2>القضية 1 · اللؤلؤة المفقودة</h2><div class="play"></div><p>شغّل الصوت واضغط للبدء</p></div>
+</div></div>
+<script>
+const P="https://d8j0ntlcm91z4.cloudfront.net/user_3JpJkywIRlAJNQVZ9HPVpTDZYWi/";
+// mouth/eye ellipses in % of the 1360x2048 portrait: [cx, cy, rx, ry]
+const CAST=[
+ {id:"karim",name:"المفتش كريم",role:"المعلّم",img:["hf_20261030_204010_94cf03c7-7d82-45fe-94aa-b21746d13238","hf_20261030_204407_3385db01-a4ec-49ca-8be6-f9ecc19217b7","hf_20261030_204409_24c19608-f67d-4465-8df9-e4c6596743f7"],m:[50,39.84,11.03,6.35],e:[50,25,15.44,3.66],
+  audio:"hf_20261030_204447_d2dc8db9-117b-4aaf-84e6-91cd06aa72f8.mp3",line:"مرحباً بك أيها المفتش. الليلة اختفت لؤلؤة «نجمة البحر» من دكان التاجر نبيل... والباب لم يُكسر."},
+ {id:"nabil",name:"نبيل",role:"التاجر · صاحب اللؤلؤة",img:["hf_20261030_204012_e361a30c-be89-4abe-8acb-359eeb2862c0","hf_20261030_204411_0d2a0cc8-d732-47fa-a838-6b5a3280c047","hf_20261030_204413_81fb0cad-7917-49da-9ae2-98dfd58aeeb0"],m:[48.53,34.38,9.56,5.86],e:[48.53,19.53,15.44,4.15],
+  audio:"hf_20261030_204449_8b6e2bd2-4a4e-4544-b246-b206bfa36315.mp3",line:"يا حضرة المفتش، تلك اللؤلؤة كانت رأس مالي كله! غداً المزاد... أرجوك، جِدها!"},
+ {id:"salem",name:"سالم",role:"الصيّاد · مشتبه فيه",img:["hf_20261030_204015_c04b2518-7af6-4f18-9d92-a0b9b4ea8e08","hf_20261030_204508_6001f0ce-1ee7-4feb-bad0-b93e95ac3a47","hf_20261030_204511_e29fafa1-b457-43c4-b5f4-f98dc43994b2"],m:[47.06,33.59,16.18,6.84],e:[47.06,21.48,15.44,4.15],
+  audio:"hf_20261030_204453_cb07471a-a114-45b8-a485-54b9a649580a.mp3",line:"أنا لم ألمس شيئاً! كنت في البحر طوال الليل. نعم، أنا من وجد تلك اللؤلؤة... وهو اشتراها ببخس!"},
+ {id:"reem",name:"ريم",role:"مساعدة التاجر · مشتبه فيها",img:["hf_20261030_204018_2babcfe6-dedf-41d2-9fd4-e66d8e625cca","hf_20261030_204512_a3490f97-f5b3-4f72-81c7-90bdc8ea4279","hf_20261030_204514_2f4e5609-6059-4bf0-8a2c-1a740fa208d4"],m:[51.47,31.25,8.46,3.66],e:[51.47,21.09,14.71,3.66],
+  audio:"hf_20261030_204455_5940072e-c53c-48da-ba01-87d1e17664d2.mp3",line:"أغلقت الدكان عند الغروب كالعادة. مفتاحي معي هنا... يمكنك أن تسأل من تشاء."},
+ {id:"omar",name:"عمر",role:"حارس السوق · مشتبه فيه",img:["hf_20261030_204046_b2e4dfad-9d0f-4772-a8d8-f4f29ff0c787","hf_20261030_204557_f85653e5-ef51-4acc-b901-23d60cb8cd1a","hf_20261030_204559_92a5c2e5-8486-485a-aefe-c28c43eeb085"],m:[52.94,32.03,8.46,4.88],e:[51.47,20.31,14.71,3.66],
+  audio:"hf_20261030_204606_70fe6121-9c6c-46d7-be9f-0627b0c0a663.mp3",line:"أنا؟ لا، لا... كنت أحرس الباب الشمالي طوال الليل. ومصباحي كهربائي... لم أرَ شيئاً، أقسم لك!"}
+];
+const cast=document.getElementById('cast'),box=document.getElementById('box'),nameEl=document.getElementById('name'),roleEl=document.getElementById('role'),textEl=document.getElementById('text'),dots=document.getElementById('dots');
+const mask=a=>`radial-gradient(ellipse ${a[2]}% ${a[3]}% at ${a[0]}% ${a[1]}%,#000 60%,transparent 100%)`;
+CAST.forEach(c=>{
+  const el=document.createElement('div');el.className='char';
+  el.innerHTML=`<div class="body"><div class="layer" style="background-image:url(${P+c.img[0]}.png)"></div><div class="layer mouth" style="background-image:url(${P+c.img[1]}.png);-webkit-mask-image:${mask(c.m)};mask-image:${mask(c.m)}"></div><div class="layer eyes" style="background-image:url(${P+c.img[2]}.png);-webkit-mask-image:${mask(c.e)};mask-image:${mask(c.e)}"></div></div>`;
+  cast.appendChild(el);c.el=el;c.mouth=el.querySelector('.mouth');c.eyes=el.querySelector('.eyes');
+  const d=document.createElement('i');dots.appendChild(d);c.dot=d;
+  (function blink(){c.eyes.style.opacity=1;setTimeout(()=>c.eyes.style.opacity=0,130);setTimeout(blink,2200+Math.random()*3200)})();
+});
+let ctx,idx=-1,busy=false;const bufs={};
+async function getBuf(c){if(bufs[c.id])return bufs[c.id];const ab=await (await fetch(P+c.audio)).arrayBuffer();return bufs[c.id]=await ctx.decodeAudioData(ab)}
+async function next(){
+  if(busy)return;idx=(idx+1)%CAST.length;const c=CAST[idx];busy=true;
+  CAST.forEach(x=>{x.el.classList.toggle('on',x===c);x.dot.classList.toggle('on',x===c)});
+  box.classList.remove('done');nameEl.textContent=c.name;roleEl.textContent=c.role;
+  textEl.innerHTML=c.line.split(' ').map(w=>'<span class="c">'+w+'</span>').join(' ');const spans=[...textEl.children];box.classList.add('show');
+  let buf;try{buf=await getBuf(c)}catch(e){spans.forEach(s=>s.classList.add('on'));box.classList.add('done');busy=false;return}
+  if(ctx.state==='suspended')await ctx.resume();
+  const src=ctx.createBufferSource();src.buffer=buf;const an=ctx.createAnalyser();an.fftSize=1024;an.smoothingTimeConstant=.35;src.connect(an);an.connect(ctx.destination);
+  const data=new Float32Array(an.fftSize),t0=ctx.currentTime+.45,dur=buf.duration;src.start(t0);let lvl=0;
+  (function loop(){const t=ctx.currentTime-t0;an.getFloatTimeDomainData(data);let s=0;for(let i=0;i<data.length;i++)s+=data[i]*data[i];const rms=Math.sqrt(s/data.length);
+    const target=Math.min(1,Math.max(0,(rms-0.015)/0.09));lvl+=(target-lvl)*(target>lvl?0.55:0.35);c.mouth.style.opacity=lvl>0.08?Math.min(1,lvl*1.2).toFixed(2):0;
+    const n=Math.min(spans.length,Math.ceil((t/(dur*0.92))*spans.length));for(let i=0;i<n;i++)spans[i].classList.add('on');
+    if(t<dur+.1)requestAnimationFrame(loop);else{c.mouth.style.opacity=0;spans.forEach(s=>s.classList.add('on'));box.classList.add('done');busy=false;}})();
+}
+document.getElementById('start').onclick=async e=>{e.currentTarget.style.display='none';ctx=new (window.AudioContext||window.webkitAudioContext)();CAST.forEach(c=>getBuf(c).catch(()=>{}));next()};
+document.getElementById('stage').addEventListener('click',e=>{if(document.getElementById('start').style.display==='none')next()});
+</script>
+</body>
+</html>
