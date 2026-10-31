@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Case 1 Preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Amiri:wght@700&display=swap">
+<style>
+:root{--ink:#f6efe2;--gold:#e9b96a;--gold2:#ffd98f;--line:rgba(233,185,106,.45)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#05070b;color:var(--ink);font-family:"Cairo",system-ui,sans-serif;overflow:hidden}
+.wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;height:100%;max-height:100dvh;aspect-ratio:9/16;max-width:100vw;overflow:hidden;background:#000}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bar{position:absolute;left:0;right:0;height:9%;background:#000;z-index:2}.bar.t{top:0}.bar.b{bottom:0}
+.sub{position:absolute;left:6%;right:6%;bottom:12%;z-index:3;text-align:center;font-size:clamp(16px,4.4vw,20px);font-weight:700;line-height:1.7;text-shadow:0 2px 8px #000,0 0 2px #000}
+.who{display:block;color:var(--gold2);font-size:.8em;margin-bottom:2px}
+.card{position:absolute;inset:0;z-index:4;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;
+ background:radial-gradient(70% 55% at 50% 45%,#1d2433 0%,#090c13 100%)}
+.card.on{display:flex}
+.card img{width:62%;max-width:320px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.card .tag{font-size:13px;color:var(--gold2);letter-spacing:1px}
+.card h2{font-family:"Amiri",serif;font-size:clamp(24px,7vw,34px);color:var(--gold2)}
+.card p{font-size:clamp(15px,4.2vw,18px);font-weight:700;line-height:1.7;max-width:340px}
+.words{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.words span{padding:6px 12px;border-radius:10px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1408;font-weight:800}
+.choices{display:grid;gap:10px;width:min(300px,90%)}
+.btn{padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);background:rgba(20,24,34,.92);color:var(--ink);font:800 16px "Cairo";cursor:pointer}
+.btn.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1408;border:0}
+.hud{position:absolute;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;pointer-events:none}
+.hud span{padding:5px 11px;border-radius:999px;background:rgba(10,12,18,.65);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--gold2)}
+.tap{position:absolute;bottom:3%;left:0;right:0;z-index:3;text-align:center;font-size:12px;opacity:.7}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="stage" id="stage">
+  <video id="v" playsinline preload="auto"></video>
+  <div class="bar t"></div><div class="bar b"></div>
+  <div class="sub" id="sub"></div>
+  <div class="hud"><span>معاينة · القضية 1</span><span id="prog"></span></div>
+  <div class="card on" id="card"></div>
+  <audio id="a" preload="auto"></audio>
+</div></div>
+<script>
+const P="https://d8j0ntlcm91z4.cloudfront.net/user_3JpJkywIRlAJNQVZ9HPVpTDZYWi/";
+const V=id=>P+id+".mp4", A=id=>P+id+".mp3", I=id=>P+id+".png";
+const N={karim:"المفتش كريم",nabil:"التاجر نبيل",salem:"الصياد سالم",reem:"ريم",omar:"الحارس عمر"};
+const S=[
+ {t:"title"},
+ {t:"v",w:"karim",src:"hf_20261031_123955_4f4571ed-e109-42cc-b289-e48d22e071c7",x:"مرحباً بكَ أيّها المفتّش. أنا كريم، وسأرافقُكَ في أولى قضاياكَ في المَرسى."},
+ {t:"v",w:"karim",src:"hf_20261031_123955_f4f310e4-b516-46ab-bea8-4211624e1542",x:"الليلةَ اختفت لؤلؤةُ «نجمة البحر» من دكّانِ التاجر نبيل... والبابُ لم يُكسَر."},
+ {t:"v",w:"nabil",src:"hf_20261031_124119_5b3de2b6-4e5a-435f-9e6b-686fce15028c",x:"أغلقتُ الدّكّانَ بنفسي في التّاسعة! لا أحدَ يملكُ المفتاحَ غيري!"},
+ {t:"puzzle",h:"🧩 لغز 1 · مسرح الجريمة",words:["مفتاح","شمع","ساعة","علبة"],img:"hf_20261031_123426_ab8e4d84-7267-40f1-8340-89e187cc0518"},
+ {t:"vo",img:"hf_20261031_123325_66a004d1-ba52-4b8f-a93c-92d2a615656e",a:"hf_20261031_123352_db1ff6d7-5601-4345-8ee1-601d51680d1b",x:"السّاعةُ سقطت وتوقّفت عند الثّالثة وعشر دقائق... هذا وقتُ السّرقة."},
+ {t:"vo",img:"hf_20261031_123454_78f4d7dd-cf94-4675-9dcc-14ef7b5f2200",a:"hf_20261031_123250_eb257dff-af03-48ba-b3ab-86ea7b60adc3",x:"قطراتُ شمعٍ أبيضَ على الأرض... مَن يحملُ شمعةً في دكّانٍ فيه مصابيح؟"},
+ {t:"v",w:"salem",src:"hf_20261031_123955_8aa66b1b-7543-4106-af98-c9fa027fdca3",x:"كنتُ في البحرِ طوالَ الليل، ولم يرجعْ قاربي إلّا في الخامسةِ فجراً."},
+ {t:"v",w:"reem",src:"hf_20261031_123955_cb31cf55-1dab-498e-b1d6-33824c562762",x:"كنتُ في عرسِ أختي طوالَ الليل، والجميعُ رآني هناك. اسألْ مَن شئت، يا حضرةَ المفتش."},
+ {t:"v",w:"omar",src:"hf_20261031_123955_1b98e91c-2e18-4388-8045-6698b08f3f18",x:"أنا حارسُ السّوق، أمرُّ بفانوسي الكهربائيّ كلَّ ساعة. لم أرَ شيئاً، والله."},
+ {t:"v",w:"nabil",src:"hf_20261031_124323_d51cb998-5672-4133-8d04-63610813f017",x:"عُمر؟ عنده مفتاحُ السّوقِ كلّه... لكنّه رجلٌ طيّب."},
+ {t:"puzzle",h:"🧩 لغز 2 · أقوال المشتبه بهم",words:["قارب","عرس","فانوس"],img:"hf_20261031_123324_6e8f524b-7235-4124-b865-318ec677b794"},
+ {t:"vo",img:"hf_20261031_123324_6e8f524b-7235-4124-b865-318ec677b794",a:"hf_20261031_123250_f623c2b0-3fb8-4628-b549-738792f31509",x:"قاربُ سالم رجع في الخامسة، وريم كانت في العرس... كلاهما بعيدٌ عن الدّكّان."},
+ {t:"vo",img:"hf_20261031_123426_98925684-e38c-42d5-afb5-cd574a1fdbcd",a:"hf_20261031_123353_17e2a0d4-21cd-4f7e-a2ef-43c844fec45a",x:"لكنّ فانوسَ عُمر ليس كهربائيّاً... فيه شمعة!"},
+ {t:"puzzle",h:"🧩 لغز 3 · الدافع",words:["ديون"]},
+ {t:"v",w:"reem",src:"hf_20261031_124118_9d7ce2e7-57e8-4b2d-95ae-28366f7e485d",x:"سمعتُ أنّ عُمر غارقٌ في الدّيون منذُ أشهر."},
+ {t:"accuse"},
+ {t:"v",w:"karim",src:"hf_20261031_124120_912f3828-ce19-4cc6-aa5c-d5ef75086c38",x:"دخلتَ بمفتاحِ السّوق، فسقطتِ السّاعة، وخبّأتَ اللّؤلؤةَ داخلَ فانوسِك."},
+ {t:"v",w:"omar",src:"hf_20261031_124214_63dcbf07-6ce1-47c8-b15d-d0e6b7d919dc",x:"الدّيونُ خنقتني... كنتُ سأُعيدُها، أقسمُ لك!"},
+ {t:"v",w:"nabil",src:"hf_20261031_124351_c5a1b490-d5c2-40dc-b3f4-7d30d9d42b47",x:"نجمةُ البحر! الحمدُ لله... شكراً لكَ أيّها المفتّش."},
+ {t:"v",w:"karim",src:"hf_20261031_124351_a2166fb6-4221-458a-8498-6dc895691999",x:"أُغلِقتْ قضيّتُكَ الأولى. المَرسى تحتاجُ مفتّشاً مثلَك."},
+ {t:"end"}
+];
+const WRONG={t:"v",w:"karim",src:"hf_20261031_124441_f9c73941-ebe7-4af8-9ebe-12e72093eef8",x:"لا... الأدلّةُ لا تقولُ ذلك. انظرْ إليها مرّةً أخرى."};
+const v=document.getElementById('v'),a=document.getElementById('a'),sub=document.getElementById('sub'),card=document.getElementById('card'),prog=document.getElementById('prog');
+let i=0, wrongMode=false;
+function showCard(html){card.innerHTML=html;card.classList.add('on');sub.innerHTML='';}
+function hideCard(){card.classList.remove('on')}
+function next(){i++;run()}
+function playVideo(s,after){hideCard();sub.innerHTML='<span class="who">'+N[s.w]+'</span>'+s.x;v.src=V(s.src);v.currentTime=0;v.play().catch(()=>{});v.onended=after;}
+function run(){
+  const s=S[i];prog.textContent=(i)+'/'+(S.length-1);
+  if(s.t==='title'){showCard('<div class="tag">القضية الأولى</div><h2>اللؤلؤة المفقودة</h2><p>معاينة القصة كاملة بالصوت والصورة.<br>شغّل الصوت.</p><div class="choices"><button class="btn pri" id="go">ابدأ</button></div>');document.getElementById('go').onclick=next;return}
+  if(s.t==='v'){playVideo(s,next);return}
+  if(s.t==='vo'){v.pause();showCard('<img src="'+I(s.img)+'"><p>'+s.x+'</p><div class="tag">🔊 المفتش كريم</div>');a.src=A(s.a);a.play().catch(()=>{});a.onended=()=>setTimeout(next,500);return}
+  if(s.t==='puzzle'){v.pause();showCard((s.img?'<img src="'+I(s.img)+'">':'')+'<div class="tag">'+s.h+'</div><p>هنا يحلّ اللاعب الكلمات المتقاطعة.<br>الكلمات المكتشفة:</p><div class="words">'+s.words.map(w=>'<span>'+w+'</span>').join('')+'</div><div class="choices"><button class="btn pri" id="go">متابعة</button></div>');document.getElementById('go').onclick=next;return}
+  if(s.t==='accuse'){v.pause();showCard('<div class="tag">⚖️ الاتهام</div><h2>مَن سرق اللؤلؤة؟</h2><div class="choices"><button class="btn" data-k="salem">سالم الصياد</button><button class="btn" data-k="reem">ريم</button><button class="btn" data-k="omar">عمر الحارس</button></div>');
+    card.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{if(b.dataset.k==='omar')next();else playVideo(WRONG,run)});return}
+  if(s.t==='end'){v.pause();showCard('<div class="tag">✅ أُغلقت القضية</div><h2>⭐ ⭐ ⭐</h2><p>نهاية المعاينة.</p><div class="choices"><button class="btn pri" id="go">إعادة</button></div>');document.getElementById('go').onclick=()=>{i=0;run()};}
+}
+run();
+</script>
+</body>
+</html>
