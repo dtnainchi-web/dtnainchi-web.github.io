@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Case 2 Preview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Amiri:wght@700&display=swap">
+<style>
+:root{--ink:#f6efe2;--gold:#e9b96a;--gold2:#ffd98f;--line:rgba(233,185,106,.45)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#05070b;color:var(--ink);font-family:"Cairo",system-ui,sans-serif;overflow:hidden}
+.wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;height:100%;max-height:100dvh;aspect-ratio:9/16;max-width:100vw;overflow:hidden;background:#000}
+video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bar{position:absolute;left:0;right:0;height:9%;background:#000;z-index:2}.bar.t{top:0}.bar.b{bottom:0}
+.sub{position:absolute;left:6%;right:6%;bottom:12%;z-index:3;text-align:center;font-size:clamp(16px,4.4vw,20px);font-weight:700;line-height:1.7;text-shadow:0 2px 8px #000,0 0 2px #000}
+.who{display:block;color:var(--gold2);font-size:.8em;margin-bottom:2px}
+.card{position:absolute;inset:0;z-index:4;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;background:radial-gradient(70% 55% at 50% 45%,#1d2433 0%,#090c13 100%)}
+.card.on{display:flex}
+.card img{width:62%;max-width:320px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))}
+.card .tag{font-size:13px;color:var(--gold2);letter-spacing:1px}
+.card h2{font-family:"Amiri",serif;font-size:clamp(24px,7vw,34px);color:var(--gold2)}
+.card p{font-size:clamp(15px,4.2vw,18px);font-weight:700;line-height:1.7;max-width:340px}
+.words{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.words span{padding:6px 12px;border-radius:10px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1408;font-weight:800}
+.choices{display:grid;gap:10px;width:min(300px,90%)}
+.btn{padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);background:rgba(20,24,34,.92);color:var(--ink);font:800 16px "Cairo";cursor:pointer}
+.btn.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b1408;border:0}
+.hud{position:absolute;top:10px;left:10px;right:10px;z-index:5;display:flex;justify-content:space-between;pointer-events:none}
+.hud span{padding:5px 11px;border-radius:999px;background:rgba(10,12,18,.65);border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--gold2)}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="stage">
+  <video id="v" playsinline preload="auto"></video>
+  <div class="bar t"></div><div class="bar b"></div>
+  <div class="sub" id="sub"></div>
+  <div class="hud"><span>معاينة · القضية 2</span><span id="prog"></span></div>
+  <div class="card on" id="card"><p>...</p></div>
+  <audio id="a" preload="auto"></audio>
+</div></div>
+<script>
+const v=document.getElementById('v'),a=document.getElementById('a'),sub=document.getElementById('sub'),card=document.getElementById('card'),prog=document.getElementById('prog');
+let D,P,steps=[],i=0;
+const L=n=>D.lines.find(l=>l.n==n);
+function showCard(h){card.innerHTML=h;card.classList.add('on');sub.innerHTML=''}
+function hideCard(){card.classList.remove('on')}
+function playLine(l,after){
+  if(l.type==='video'){hideCard();sub.innerHTML='<span class="who">'+D.character_names[l.who]+'</span>'+l.text;v.src=P+l.video;v.play().catch(()=>{});v.onended=after}
+  else{v.pause();const img=l.evidence?'<img src="'+P+D.evidence[l.evidence]+'">':'';showCard(img+'<p>'+l.text+'</p><div class="tag">🔊 المفتش كريم</div>');a.src=P+l.audio;a.play().catch(()=>{});a.onended=()=>setTimeout(after,500)}
+}
+function next(){i++;run()}
+function run(){
+  const s=steps[i];prog.textContent=i+'/'+(steps.length-1);
+  if(s==='title'){showCard('<div class="tag">القضية الثانية</div><h2>'+D.title+'</h2><p>معاينة القصة كاملة بالصوت والصورة.<br>شغّل الصوت.</p><div class="choices"><button class="btn pri" id="go">ابدأ</button></div>');go.onclick=next;return}
+  if(s==='case_closed'){v.pause();showCard('<div class="tag">✅ أُغلقت القضية</div><h2>⭐ ⭐ ⭐</h2><p>نهاية المعاينة.</p><div class="choices"><button class="btn pri" id="go">إعادة</button></div>');go.onclick=()=>{i=0;run()};return}
+  if(s==='accuse'){v.pause();showCard('<div class="tag">⚖️ الاتهام</div><h2>مَن سرق الزعفران؟</h2><div class="choices">'+D.accusation.suspects.map(k=>'<button class="btn" data-k="'+k+'">'+D.character_names[k]+'</button>').join('')+'</div>');
+    card.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{if(b.dataset.k===D.accusation.culprit)next();else playLine(L(D.accusation.wrong_line),run)});return}
+  if(s.startsWith('p')){const pz=D.puzzles.find(p=>p.id===s);v.pause();
+    const seq=[...pz.words.filter(w=>w.then_line!=null).map(w=>w.then_line),...(pz.then_lines||[])];
+    showCard('<div class="tag">🧩 '+pz.title+'</div><p>هنا يحلّ اللاعب الكلمات المتقاطعة.<br>الكلمات:</p><div class="words">'+pz.words.map(w=>'<span>'+w.w+'</span>').join('')+'</div><div class="choices"><button class="btn pri" id="go">متابعة</button></div>');
+    go.onclick=()=>{let k=0;(function nx(){if(k<seq.length)playLine(L(seq[k++]),nx);else next()})()};return}
+  playLine(L(+s),next);
+}
+fetch('case2.json?'+Date.now()).then(r=>r.json()).then(j=>{D=j;P=j.cdn_prefix;steps=['title',...j.flow];run()});
+</script>
+</body>
+</html>

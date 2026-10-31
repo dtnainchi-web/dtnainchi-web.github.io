@@ -1,0 +1,272 @@
+{
+ "case": "case_02_saffron",
+ "title": "زعفران الميناء",
+ "cdn_prefix": "https://d8j0ntlcm91z4.cloudfront.net/user_3JpJkywIRlAJNQVZ9HPVpTDZYWi/",
+ "background": "hf_20261031_191842_b4ecef4c-b019-4b57-afef-eafa52cf1711.png",
+ "character_names": {
+  "karim": "المفتش كريم",
+  "mansour": "الحاج منصور",
+  "youssef": "الحمّال يوسف",
+  "laila": "المحاسبة ليلى",
+  "hamid": "القبطان حميد"
+ },
+ "cinematic_stills": {
+  "karim": "hf_20261031_192042_10b2167f-2605-475a-bd5c-dfddb0c7dfd9.png",
+  "mansour": "hf_20261031_191921_154acb15-c327-4e76-8c58-83ce0d2d4301.png",
+  "youssef": "hf_20261031_191921_99c799e6-2e7d-4b58-9b86-06647d497493.png",
+  "laila": "hf_20261031_191922_cb7484a7-a443-42a6-8860-a6160899e3df.png",
+  "hamid": "hf_20261031_191922_0cc6cd19-a1f1-48ad-b0a2-1b1c22742cb1.png"
+ },
+ "evidence": {
+  "knot": "hf_20261031_192042_ad50fc6d-d109-4cee-93aa-8004a37de4eb.png",
+  "crate": "hf_20261031_192132_773c6c82-5b67-4ee1-a183-5e1e545cbb9f.png",
+  "glove": "hf_20261031_192043_5b58457f-4e4d-42b4-be84-7e6064213498.png",
+  "ledger": "hf_20261031_192042_5cdf8cb4-011d-4b31-bcb9-6cf16d425dd8.png"
+ },
+ "voices": {
+  "karim": "Gideon 1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "mansour": "Harrison 573e5163-59b3-4926-aab1-951ef2985f81",
+  "youssef": "Dylan b847bc29-f184-583a-8ad9-d1f1e16d1a60",
+  "laila": "Nadine 165d9309-bb17-56ff-964a-5d6a38dab92f",
+  "hamid": "Knox 195e386a-cb61-5c1b-a53b-0e2f0669c408"
+ },
+ "lines": [
+  {
+   "n": 0,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_192007_ebcb6739-c44f-484c-91ef-ce2590d435ac.mp3",
+   "text": "قضيّتُكَ الثّانية يا مفتّش. سُرِقَ صندوقُ زعفرانٍ من مخزنِ الميناء عندَ الفجر.",
+   "video": "hf_20261031_192258_e525570b-ffef-488d-9ab1-bdd2249e7471.mp4"
+  },
+  {
+   "n": 1,
+   "who": "mansour",
+   "type": "video",
+   "audio": "hf_20261031_192007_73c908a3-ec5e-456e-89cb-edf9881dcb45.mp3",
+   "text": "زعفرانٌ بثروة! القفلُ سليم... لكنّ حبلَ الصّندوقِ مقطوع!",
+   "video": "hf_20261031_192116_888409d7-f21a-43ec-9935-f943cfeba04b.mp4"
+  },
+  {
+   "n": 2,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "knot",
+   "audio": "hf_20261031_192007_3f9c07a9-9856-460a-95c0-4e1e8753c985.mp3",
+   "text": "هذه عقدةُ بحّارة... لا يربطُها إلّا مَن عاشَ في البحر."
+  },
+  {
+   "n": 3,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "crate",
+   "audio": "hf_20261031_192007_5f176ac7-4953-4c84-82da-d08b0da42763.mp3",
+   "text": "خيوطُ زعفرانٍ على الأرض... مَن لمسَ الصّندوقَ حملَ أثرَه."
+  },
+  {
+   "n": 4,
+   "who": "youssef",
+   "type": "video",
+   "audio": "hf_20261031_192008_afb53d7d-56f7-4932-a6b6-2692ee66892a.mp3",
+   "text": "كنتُ عندَ الفرّانِ مع الفجر، أحملُ الخبز. اسألوه!",
+   "video": "hf_20261031_192116_402ab14b-c650-4446-a1f0-3f95db890bd6.mp4"
+  },
+  {
+   "n": 5,
+   "who": "laila",
+   "type": "video",
+   "audio": "hf_20261031_192007_34af050e-913d-4585-8de8-dd3c2e99bbd3.mp3",
+   "text": "خرجتُ من المخزنِ في الثّامنةِ مساءً. كلُّ شيءٍ مكتوبٌ في دفتري.",
+   "video": "hf_20261031_192116_d1ce6c49-682e-446e-b955-9681c244c09a.mp4"
+  },
+  {
+   "n": 6,
+   "who": "hamid",
+   "type": "video",
+   "audio": "hf_20261031_192008_b303f066-1020-4499-a608-2b6ee9c259b8.mp3",
+   "text": "أنا؟ لم أدخلْ هذا المخزنَ منذُ أسبوع. سفينتي تنتظرني.",
+   "video": "hf_20261031_192324_b06c6ed7-98ab-458c-aa83-054392f92253.mp4"
+  },
+  {
+   "n": 7,
+   "who": "mansour",
+   "type": "video",
+   "audio": "hf_20261031_192007_bfeb970d-a338-49b9-91a6-b8b6acf7dec4.mp3",
+   "text": "حميد يعرفُ المخزنَ جيّداً... كان ينقلُ بضاعتي قبلَ أن نختلف.",
+   "video": "hf_20261031_192325_e5ab6f43-a65b-42f4-90c4-4c45a8d1154c.mp4"
+  },
+  {
+   "n": 8,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "ledger",
+   "audio": "hf_20261031_192026_45abbead-c534-4449-bdf3-c60582a3cc44.mp3",
+   "text": "الفرّانُ رأى يوسف، ودفترُ ليلى واضح... كلاهما بعيدٌ عن الجريمة."
+  },
+  {
+   "n": 9,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "glove",
+   "audio": "hf_20261031_192007_f0c5b843-9bad-4f20-8a92-7048113e5857.mp3",
+   "text": "لكنّ قفّازَ حميد عليه بُقَعٌ صفراء... إنّه زعفران!"
+  },
+  {
+   "n": 10,
+   "who": "laila",
+   "type": "video",
+   "audio": "hf_20261031_192007_fa113893-1d9f-4c05-94b5-f7f02173198a.mp3",
+   "text": "سفينةُ القبطان حميد ستُبحِرُ عندَ الظّهر... إلى خارجِ البلاد.",
+   "video": "hf_20261031_192407_7f0265bf-bda1-40fe-add7-9be899b7227d.mp4"
+  },
+  {
+   "n": 11,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_192027_43abf7b8-3321-441a-845b-87e7bee72c6c.mp3",
+   "text": "دخلتَ قبلَ الفجر، وربطتَ الصّندوقَ بعقدتِك، والزّعفرانُ على قفّازِك.",
+   "video": "hf_20261031_192457_0eea276e-5319-4c3a-a2ce-8d81396e4720.mp4"
+  },
+  {
+   "n": 12,
+   "who": "hamid",
+   "type": "video",
+   "audio": "hf_20261031_192103_1a8c29d7-8edb-4ccc-a7fd-2f4024d70d16.mp3",
+   "text": "منصور طردني وأخذَ رزقي... أردتُ حقّي فقط!",
+   "video": "hf_20261031_192433_a6749cbc-7e76-478a-88ad-95e069c4a2fc.mp4"
+  },
+  {
+   "n": 13,
+   "who": "mansour",
+   "type": "video",
+   "audio": "hf_20261031_192103_46f36d7a-6373-4b0e-967a-29881f00ef23.mp3",
+   "text": "زعفراني! باركَ اللهُ فيكَ يا حضرةَ المفتّش.",
+   "video": "hf_20261031_192547_624e45c4-31d0-4893-aa7b-d8ec688cff2e.mp4"
+  },
+  {
+   "n": 14,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_192130_6bee8ab9-3b23-4f94-b16e-946da3c7a76b.mp3",
+   "text": "أحسنت. لكنّ أحدَهم أخبرَ حميد أنّ المخزنَ بلا حارس... أظنُّ أنّ وراءَ هذه الجرائمِ عقلاً مدبّراً.",
+   "video": "hf_20261031_192547_4f8909f8-30ac-4a87-9419-51be4f92149a.mp4"
+  },
+  {
+   "n": 15,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_192103_5681d0cf-b64c-4d6e-8f22-c3ba50a05b51.mp3",
+   "text": "لا... هذا لا يتفقُ مع الأدلّة. فكّرْ مرّةً أخرى.",
+   "note": "wrong accusation",
+   "video": "hf_20261031_192736_41204dd4-c5df-4962-999d-21c043c482e1.mp4"
+  }
+ ],
+ "puzzles": [
+  {
+   "id": "p1",
+   "title": "مسرح الجريمة",
+   "after_line": 1,
+   "words": [
+    {
+     "w": "صندوق",
+     "clue": "ما الذي سُرِق من المخزن؟",
+     "evidence": "crate",
+     "then_line": 3
+    },
+    {
+     "w": "الحبل",
+     "clue": "وُجد مقطوعاً حول الصندوق"
+    },
+    {
+     "w": "عقدة",
+     "clue": "ربطة غريبة لا يعرفها إلا البحّارة",
+     "evidence": "knot",
+     "then_line": 2
+    },
+    {
+     "w": "زعفران",
+     "clue": "توابل حمراء ثمينة تساوي ثروة"
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "أقوال المشتبه بهم",
+   "after_line": 7,
+   "words": [
+    {
+     "w": "فرن",
+     "clue": "أين كان يوسف عند الفجر؟"
+    },
+    {
+     "w": "دفتر",
+     "clue": "تكتب فيه ليلى كل دخول وخروج",
+     "evidence": "ledger"
+    },
+    {
+     "w": "قفاز",
+     "clue": "ما يلبسه القبطان في يديه",
+     "evidence": "glove"
+    }
+   ],
+   "then_lines": [
+    8,
+    9
+   ],
+   "objection": {
+    "suspect": "hamid",
+    "lie_line": 6,
+    "proof_evidence": "glove"
+   }
+  },
+  {
+   "id": "p3",
+   "title": "الدافع",
+   "after_line": 9,
+   "words": [
+    {
+     "w": "سفينة",
+     "clue": "ما ينتظر حميد في الميناء"
+    },
+    {
+     "w": "الظهر",
+     "clue": "متى ستُبحر سفينته؟"
+    },
+    {
+     "w": "تهريب",
+     "clue": "إخراج البضاعة سرّاً من البلاد"
+    }
+   ],
+   "then_lines": [
+    10
+   ]
+  }
+ ],
+ "flow": [
+  "0",
+  "1",
+  "p1",
+  "4",
+  "5",
+  "6",
+  "7",
+  "p2",
+  "p3",
+  "accuse",
+  "11",
+  "12",
+  "13",
+  "14",
+  "case_closed"
+ ],
+ "accusation": {
+  "suspects": [
+   "youssef",
+   "laila",
+   "hamid"
+  ],
+  "culprit": "hamid",
+  "wrong_line": 15
+ },
+ "notes": "Same format as case1.json. Voice-over lines show the evidence image full screen with Karim's voice. The crossword engine should verify the words cross; if a puzzle cannot form one connected grid, tell the owner instead of changing words silently."
+}
