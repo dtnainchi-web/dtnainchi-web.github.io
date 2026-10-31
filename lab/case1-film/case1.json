@@ -1,0 +1,289 @@
+{
+ "case": "case_01_pearl",
+ "title": "اللؤلؤة المفقودة",
+ "cdn_prefix": "https://d8j0ntlcm91z4.cloudfront.net/user_3JpJkywIRlAJNQVZ9HPVpTDZYWi/",
+ "background_shop": "hf_20261030_204608_285a2014-18ed-4af2-b23b-32b7658bb3e3.png",
+ "portraits": {
+  "karim": "(Higgsfield job id, not a file) 94cf03c7-7d82-45fe-94aa-b21746d13238",
+  "nabil": "(Higgsfield job id, not a file) e361a30c-be89-4abe-8acb-359eeb2862c0",
+  "salem": "(Higgsfield job id, not a file) c04b2518-7af6-4f18-9d92-a0b9b4ea8e08",
+  "reem": "(Higgsfield job id, not a file) 2babcfe6-dedf-41d2-9fd4-e66d8e625cca",
+  "omar": "(Higgsfield job id, not a file) 53a5481b-779d-4885-91ac-fd6685f8cbe5"
+ },
+ "cinematic_stills": {
+  "karim": "hf_20261030_210700_c73a6057-ed3a-4fa7-8559-74440f1667f9.png",
+  "nabil": "hf_20261031_123428_6a19c741-6c44-4777-a6bc-b21ddb6f20fa.png",
+  "salem": "hf_20261031_123426_3a08ae94-441f-46de-9ed3-24c539ceeeef.png",
+  "reem": "hf_20261031_123325_fd24916d-9956-49a8-bec8-d3c16d8ad565.png",
+  "omar": "hf_20261031_123325_b85b8406-e7c9-46f1-900f-ea6d0c9248f9.png"
+ },
+ "evidence": {
+  "clock": "hf_20261031_123325_66a004d1-ba52-4b8f-a93c-92d2a615656e.png",
+  "wax": "hf_20261031_123454_78f4d7dd-cf94-4675-9dcc-14ef7b5f2200.png",
+  "lantern": "hf_20261031_123426_98925684-e38c-42d5-afb5-cd574a1fdbcd.png",
+  "keys": "hf_20261031_123324_6e8f524b-7235-4124-b865-318ec677b794.png",
+  "box": "hf_20261031_123426_ab8e4d84-7267-40f1-8340-89e187cc0518.png"
+ },
+ "voices": {
+  "karim": "Gideon 1ad38ba4-9cc4-4f2f-9fde-b0fefdf67ae5",
+  "nabil": "Alistair d9d5c263-f84e-4752-97b5-3750fcc6fd2f",
+  "salem": "Barrett d603a8cd-3fe1-55e0-9245-617a2589131e",
+  "reem": "Ainsley 731b4ffe-e95e-59f4-8c00-81608936091f",
+  "omar": "Callan d8061b90-ff25-5882-8384-7a6a28806f30"
+ },
+ "lines": [
+  {
+   "n": 0,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_123352_a95ae98e-412b-4215-b39f-3415b9834f6d.mp3",
+   "video": "hf_20261031_123955_4f4571ed-e109-42cc-b289-e48d22e071c7.mp4",
+   "text": "مرحباً بكَ أيّها المفتّش. أنا كريم، وسأرافقُكَ في أولى قضاياكَ في المَرسى."
+  },
+  {
+   "n": 1,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_123250_4a54efac-9f47-42b6-b27f-65d87c8a939c.mp3",
+   "video": "hf_20261031_123955_f4f310e4-b516-46ab-bea8-4211624e1542.mp4",
+   "text": "الليلةَ اختفت لؤلؤةُ «نجمة البحر» من دكّانِ التاجر نبيل... والبابُ لم يُكسَر."
+  },
+  {
+   "n": 2,
+   "who": "nabil",
+   "type": "video",
+   "audio": "hf_20261031_123250_26f4c2b7-c09a-4fbc-bb62-ca9c1bc4ec69.mp3",
+   "video": "hf_20261031_124119_5b3de2b6-4e5a-435f-9e6b-686fce15028c.mp4",
+   "text": "أغلقتُ الدّكّانَ بنفسي في التّاسعة! لا أحدَ يملكُ المفتاحَ غيري!"
+  },
+  {
+   "n": 3,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "clock",
+   "audio": "hf_20261031_123352_db1ff6d7-5601-4345-8ee1-601d51680d1b.mp3",
+   "text": "السّاعةُ سقطت وتوقّفت عند الثّالثة وعشر دقائق... هذا وقتُ السّرقة."
+  },
+  {
+   "n": 4,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "wax",
+   "audio": "hf_20261031_123250_eb257dff-af03-48ba-b3ab-86ea7b60adc3.mp3",
+   "text": "قطراتُ شمعٍ أبيضَ على الأرض... مَن يحملُ شمعةً في دكّانٍ فيه مصابيح؟"
+  },
+  {
+   "n": 5,
+   "who": "salem",
+   "type": "video",
+   "audio": "hf_20261031_123250_a3f34ba5-b88c-44d1-841f-fe62857d4c53.mp3",
+   "video": "hf_20261031_123955_8aa66b1b-7543-4106-af98-c9fa027fdca3.mp4",
+   "text": "كنتُ في البحرِ طوالَ الليل، ولم يرجعْ قاربي إلّا في الخامسةِ فجراً."
+  },
+  {
+   "n": 6,
+   "who": "reem",
+   "type": "video",
+   "audio": "hf_20261031_122408_b8e341f6-0f6d-4808-aae1-bd78a6603aae.mp3",
+   "video": "hf_20261031_123955_cb31cf55-1dab-498e-b1d6-33824c562762.mp4",
+   "text": "كنتُ في عرسِ أختي طوالَ الليل، والجميعُ رآني هناك. اسألْ مَن شئت، يا حضرةَ المفتش."
+  },
+  {
+   "n": 7,
+   "who": "omar",
+   "type": "video",
+   "audio": "hf_20261031_123250_86ff5179-2539-4996-9e31-be1be5747762.mp3",
+   "video": "hf_20261031_123955_1b98e91c-2e18-4388-8045-6698b08f3f18.mp4",
+   "text": "أنا حارسُ السّوق، أمرُّ بفانوسي الكهربائيّ كلَّ ساعة. لم أرَ شيئاً، والله."
+  },
+  {
+   "n": 8,
+   "who": "nabil",
+   "type": "video",
+   "audio": "hf_20261031_123250_699a6921-1ac3-42ac-ba35-2800b7ca88b6.mp3",
+   "video": "hf_20261031_124323_d51cb998-5672-4133-8d04-63610813f017.mp4",
+   "text": "عُمر؟ عنده مفتاحُ السّوقِ كلّه... لكنّه رجلٌ طيّب."
+  },
+  {
+   "n": 9,
+   "who": "karim",
+   "type": "voiceover",
+   "audio": "hf_20261031_123250_f623c2b0-3fb8-4628-b549-738792f31509.mp3",
+   "text": "قاربُ سالم رجع في الخامسة، وريم كانت في العرس... كلاهما بعيدٌ عن الدّكّان."
+  },
+  {
+   "n": 10,
+   "who": "karim",
+   "type": "voiceover",
+   "evidence": "lantern",
+   "audio": "hf_20261031_123353_17e2a0d4-21cd-4f7e-a2ef-43c844fec45a.mp3",
+   "text": "لكنّ فانوسَ عُمر ليس كهربائيّاً... فيه شمعة!"
+  },
+  {
+   "n": 11,
+   "who": "reem",
+   "type": "video",
+   "audio": "hf_20261031_123250_bb01850e-c996-408e-af76-d9434d41a01a.mp3",
+   "video": "hf_20261031_124118_9d7ce2e7-57e8-4b2d-95ae-28366f7e485d.mp4",
+   "text": "سمعتُ أنّ عُمر غارقٌ في الدّيون منذُ أشهر."
+  },
+  {
+   "n": 12,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_123352_e0a79dc8-ae88-40e0-a154-1aba23b9ad65.mp3",
+   "video": "hf_20261031_124120_912f3828-ce19-4cc6-aa5c-d5ef75086c38.mp4",
+   "text": "دخلتَ بمفتاحِ السّوق، فسقطتِ السّاعة، وخبّأتَ اللّؤلؤةَ داخلَ فانوسِك."
+  },
+  {
+   "n": 13,
+   "who": "omar",
+   "type": "video",
+   "audio": "hf_20261031_123352_473e70e2-4642-4a92-be3e-57549437ab1d.mp3",
+   "video": "hf_20261031_124214_63dcbf07-6ce1-47c8-b15d-d0e6b7d919dc.mp4",
+   "text": "الدّيونُ خنقتني... كنتُ سأُعيدُها، أقسمُ لك!"
+  },
+  {
+   "n": 14,
+   "who": "nabil",
+   "type": "video",
+   "audio": "hf_20261031_123259_d09e8163-7993-4c57-89c6-92b7aefd75b8.mp3",
+   "video": "hf_20261031_124351_c5a1b490-d5c2-40dc-b3f4-7d30d9d42b47.mp4",
+   "text": "نجمةُ البحر! الحمدُ لله... شكراً لكَ أيّها المفتّش."
+  },
+  {
+   "n": 15,
+   "who": "karim",
+   "type": "video",
+   "audio": "hf_20261031_123259_dfded943-3ae1-4fe8-9a7d-7bcca9366179.mp3",
+   "video": "hf_20261031_124351_a2166fb6-4221-458a-8498-6dc895691999.mp4",
+   "text": "أُغلِقتْ قضيّتُكَ الأولى. المَرسى تحتاجُ مفتّشاً مثلَك."
+  },
+  {
+   "n": 16,
+   "who": "karim",
+   "type": "video",
+   "note": "wrong accusation",
+   "audio": "hf_20261031_123250_0352184d-f817-40b3-a005-c93842e61897.mp3",
+   "video": "hf_20261031_124441_f9c73941-ebe7-4af8-9ebe-12e72093eef8.mp4",
+   "text": "لا... الأدلّةُ لا تقولُ ذلك. انظرْ إليها مرّةً أخرى."
+  }
+ ],
+ "character_names": {
+  "karim": "المفتش كريم",
+  "nabil": "التاجر نبيل",
+  "salem": "الصياد سالم",
+  "reem": "ريم",
+  "omar": "الحارس عمر"
+ },
+ "puzzles": [
+  {
+   "id": "p1",
+   "title": "مسرح الجريمة",
+   "after_line": 2,
+   "words": [
+    {
+     "w": "مفتاح",
+     "clue": "الباب لم يُكسر... فبماذا فُتح؟",
+     "evidence": "keys"
+    },
+    {
+     "w": "شمع",
+     "clue": "قطرات بيضاء على الأرض",
+     "evidence": "wax",
+     "then_line": 4
+    },
+    {
+     "w": "ساعة",
+     "clue": "سقطت وتوقّفت عند وقت السرقة",
+     "evidence": "clock",
+     "then_line": 3
+    },
+    {
+     "w": "علبة",
+     "clue": "كانت فيها اللؤلؤة، والآن فارغة",
+     "evidence": "box"
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "أقوال المشتبه بهم",
+   "after_line": 8,
+   "words": [
+    {
+     "w": "قارب",
+     "clue": "دليل سالم: رجع في الخامسة فجراً"
+    },
+    {
+     "w": "عرس",
+     "clue": "أين كانت ريم طوال الليل؟"
+    },
+    {
+     "w": "فانوس",
+     "clue": "ما يحمله الحارس في جولاته",
+     "evidence": "lantern"
+    }
+   ],
+   "then_lines": [
+    9,
+    10
+   ],
+   "objection": {
+    "suspect": "omar",
+    "lie_line": 7,
+    "proof_evidence": "lantern"
+   }
+  },
+  {
+   "id": "p3",
+   "title": "الدافع",
+   "after_line": 10,
+   "words": [
+    {
+     "w": "ديون",
+     "clue": "ما الذي يخنق الحارس منذ أشهر؟"
+    },
+    {
+     "w": "حارس",
+     "clue": "مهنة من يملك مفتاح السوق كله"
+    },
+    {
+     "w": "لؤلؤة",
+     "clue": "«نجمة البحر» المسروقة"
+    }
+   ],
+   "then_lines": [
+    11
+   ]
+  }
+ ],
+ "flow": [
+  "0",
+  "1",
+  "2",
+  "p1",
+  "5",
+  "6",
+  "7",
+  "8",
+  "p2",
+  "p3",
+  "accuse",
+  "12",
+  "13",
+  "14",
+  "15",
+  "case_closed"
+ ],
+ "accusation": {
+  "suspects": [
+   "salem",
+   "reem",
+   "omar"
+  ],
+  "culprit": "omar",
+  "wrong_line": 16
+ },
+ "notes": "All media files are at cdn_prefix + filename. Lines of type 'voiceover' show the evidence image full screen with Karim's voice (no video). Line 9 has no specific evidence: show keys+lantern or the notebook."
+}
