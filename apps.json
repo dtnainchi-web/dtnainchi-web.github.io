@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "id": "quiz_patente_arabo",
+      "packageName": "com.younessnadi.quizpatentearabo",
+      "platform": "android",
+      "icon": "https://dtnainchi-web.github.io/apps/icons/quiz_patente_arabo.png",
+      "name": { "ar": "Quiz Patente B Arabo", "it": "Quiz Patente B Arabo", "en": "Quiz Patente B Arabo" },
+      "text": {
+        "ar": "أسئلة رخصة القيادة الإيطالية مع الترجمة والشرح بالعربية",
+        "it": "Quiz della patente B con traduzione e spiegazione in arabo",
+        "en": "Italian driving licence quiz with Arabic translation"
+      }
+    },
+    {
+      "id": "quiz_cqc",
+      "packageName": "com.younessnadi.quizcqc",
+      "platform": "android",
+      "icon": "https://dtnainchi-web.github.io/apps/icons/quiz_cqc.png",
+      "name": { "ar": "Quiz CQC Patente", "it": "Quiz CQC Patente", "en": "Quiz CQC Patente" },
+      "text": {
+        "ar": "تدرّب على امتحان CQC للسائقين المحترفين في إيطاليا",
+        "it": "Quiz CQC per conducenti professionali, tradotti",
+        "en": "Italian CQC professional driver quiz, translated"
+      }
+    },
+    {
+      "id": "wadih",
+      "packageName": "com.younessnadi.wadih",
+      "platform": "android",
+      "icon": "https://dtnainchi-web.github.io/apps/icons/wadih.png",
+      "name": { "ar": "واضح · Wadih", "it": "Wadih", "en": "Wadih" },
+      "text": {
+        "ar": "صوّر أي رسالة أو وثيقة واحصل على شرحها بلغتك",
+        "it": "Fotografa una lettera e ricevi la spiegazione nella tua lingua",
+        "en": "Snap any letter and get it explained in your language"
+      }
+    },
+    {
+      "id": "shelf_sort",
+      "packageName": "com.younessnadi.shelfsort",
+      "platform": "android",
+      "icon": "https://dtnainchi-web.github.io/apps/icons/shelf_sort.png",
+      "name": { "ar": "Shelf Sort", "it": "Shelf Sort", "en": "Shelf Sort" },
+      "text": {
+        "ar": "لعبة ترتيب البضائع على الرفوف لتسلية ذهنك",
+        "it": "Gioco di ordinamento degli scaffali per rilassarti",
+        "en": "A relaxing shelf sorting puzzle game"
+      }
+    }
+  ]
+}
