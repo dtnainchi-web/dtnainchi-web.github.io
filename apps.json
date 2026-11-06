@@ -48,6 +48,34 @@
         "it": "Gioco di ordinamento degli scaffali per rilassarti",
         "en": "A relaxing shelf sorting puzzle game"
       }
+    },
+    {
+      "id": "us_citizenship",
+      "packageName": "com.younessnadi.uscitizenship",
+      "platform": "android",
+      "icon": "https://dtnainchi-web.github.io/apps/icons/us_citizenship.png",
+      "name": {
+        "en": "US Citizenship Test 2025", "es": "Examen de Ciudadanía USA 2025", "zh": "美国入籍考试 2025",
+        "vi": "Thi Quốc Tịch Mỹ 2025", "tl": "US Citizenship Test 2025", "ar": "اختبار الجنسية الأمريكية 2025",
+        "fr": "Test de citoyenneté USA 2025", "pt": "Teste de Cidadania EUA 2025", "hi": "अमेरिकी नागरिकता टेस्ट 2025",
+        "ko": "미국 시민권 시험 2025", "ru": "Тест на гражданство США 2025", "ht": "Tès Sitwayènte Etazini 2025",
+        "it": "US Citizenship Test 2025"
+      },
+      "text": {
+        "en": "The 128 civics questions of the U.S. citizenship interview, translated",
+        "es": "Las 128 preguntas cívicas de la entrevista de ciudadanía, traducidas",
+        "zh": "美国入籍面试128道公民题，附中文翻译",
+        "vi": "128 câu hỏi công dân cho phỏng vấn quốc tịch Mỹ, có dịch",
+        "tl": "Ang 128 tanong sa civics ng U.S. citizenship interview, may salin",
+        "ar": "أسئلة التربية المدنية الـ128 لمقابلة الجنسية الأمريكية مع الترجمة",
+        "fr": "Les 128 questions civiques de l'entretien de naturalisation, traduites",
+        "pt": "As 128 perguntas cívicas da entrevista de cidadania, traduzidas",
+        "hi": "अमेरिकी नागरिकता इंटरव्यू के 128 सिविक्स प्रश्न, अनुवाद के साथ",
+        "ko": "미국 시민권 인터뷰 시민학 128문항, 한국어 번역",
+        "ru": "128 вопросов теста на гражданство США с переводом",
+        "ht": "128 kesyon sivik entèvyou sitwayènte ameriken, ak tradiksyon",
+        "it": "Le 128 domande di educazione civica per la cittadinanza USA, tradotte"
+      }
     }
   ]
 }
