@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Shikaku · Friend challenge</title>
+<style>
+:root{--bg:#F4F1EA;--card:#FFFCF6;--ink:#2E3440;--muted:#6B7280;--accent:#5E8C6A;--line:#D9D3C7}
+@media (prefers-color-scheme:dark){:root{--bg:#1C1F26;--card:#262A33;--ink:#E6E8EC;--muted:#A3A9B4;--accent:#8DB89A;--line:#3A3F4B}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);
+font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",sans-serif;padding:16px}
+main{max-width:420px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 22px;text-align:center}
+.block{width:96px;height:72px;margin:0 auto 18px;border-radius:20px;background:linear-gradient(135deg,#a9c6b3,#7fa58c);position:relative}
+.block:before,.block:after{content:"";position:absolute;top:30px;width:7px;height:9px;border-radius:50%;background:#2E3440}
+.block:before{left:36px}.block:after{right:36px}
+h1{font-size:22px;margin:0 0 6px}
+.time{font-size:40px;font-weight:800;margin:6px 0 2px;direction:ltr}
+p{color:var(--muted);margin:6px 0 18px}
+a.btn{display:block;padding:14px;border-radius:999px;text-decoration:none;font-weight:700;margin:10px 0}
+a.primary{background:var(--accent);color:#fff}
+a.secondary{border:2px solid var(--line);color:var(--ink)}
+small{display:block;color:var(--muted);margin-top:14px;font-size:13px}
+</style>
+</head>
+<body>
+<main>
+  <div class="block" aria-hidden="true"></div>
+  <h1 id="title">Friend challenge</h1>
+  <div class="time" id="time">–</div>
+  <p id="sub">Can you beat this time on the same board?</p>
+  <a class="btn primary" id="open" href="#">Open in the app</a>
+  <a class="btn secondary" id="play" href="https://play.google.com/store/apps/details?id=com.younessnadi.shikaku">Get it on Google Play</a>
+  <small id="note">Shikaku · rectangle logic puzzle</small>
+</main>
+<script>
+// No tracking, no cookies, no automatic redirect. Reads ?id=...&t=... only.
+(function () {
+  var q = new URLSearchParams(location.search);
+  var id = q.get('id') || '';
+  var t = parseInt(q.get('t') || '', 10);
+  var valid = /^(c_\d{4}|s_\d{4}|daily-\d{8}|e_\d{1,6})$/.test(id) && t > 0 && t < 86400;
+  var T = {
+    en: ['Friend challenge', 'Can you beat this time on the same board?', 'Open in the app', 'Get it on Google Play', 'This challenge link is not valid.'],
+    es: ['Reto de un amigo', '¿Puedes superar este tiempo en el mismo tablero?', 'Abrir en la app', 'Disponible en Google Play', 'Este enlace de reto no es válido.'],
+    fr: ['Défi d’un ami', 'Saurez-vous battre ce temps sur la même grille ?', 'Ouvrir dans l’appli', 'Disponible sur Google Play', 'Ce lien de défi n’est pas valide.'],
+    it: ['Sfida di un amico', 'Riesci a battere questo tempo sulla stessa griglia?', 'Apri nell’app', 'Disponibile su Google Play', 'Questo link di sfida non è valido.'],
+    de: ['Herausforderung', 'Schaffst du diese Zeit auf demselben Rätsel?', 'In der App öffnen', 'Jetzt bei Google Play', 'Dieser Link ist ungültig.'],
+    pt: ['Desafio de um amigo', 'Consegue superar este tempo no mesmo tabuleiro?', 'Abrir no app', 'Disponível no Google Play', 'Este link de desafio não é válido.'],
+    ar: ['تحدٍّ من صديق', 'هل تستطيع التفوق على هذا الوقت في الشبكة نفسها؟', 'افتح في التطبيق', 'احصل عليه من Google Play', 'رابط التحدي غير صالح.']
+  };
+  var lang = (navigator.language || 'en').slice(0, 2);
+  var s = T[lang] || T.en;
+  if (lang === 'ar') { document.documentElement.dir = 'rtl'; document.documentElement.lang = 'ar'; }
+  document.getElementById('title').textContent = s[0];
+  document.getElementById('sub').textContent = valid ? s[1] : s[4];
+  document.getElementById('open').textContent = s[2];
+  document.getElementById('play').textContent = s[3];
+  if (!valid) { document.getElementById('open').style.display = 'none'; return; }
+  // Western digits always
+  document.getElementById('time').textContent = Math.floor(t / 60) + ':' + ('0' + (t % 60)).slice(-2);
+  var path = 'dtnainchi-web.github.io/shikaku/d/?id=' + encodeURIComponent(id) + '&t=' + t;
+  document.getElementById('open').href =
+    'intent://' + path + '#Intent;scheme=https;package=com.younessnadi.shikaku;end';
+  var referrer = encodeURIComponent('duel_' + id + '_' + t);
+  document.getElementById('play').href =
+    'https://play.google.com/store/apps/details?id=com.younessnadi.shikaku&referrer=' + referrer;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.younessnadi.shikaku",
+      "sha256_cert_fingerprints": [
+        "D4:F0:E2:25:D0:8F:DB:8E:FC:4B:C1:1F:E3:5C:4B:DE:88:37:13:2F:06:92:FC:47:56:92:58:92:8A:B3:83:33"
+      ]
+    }
+  }
+]
